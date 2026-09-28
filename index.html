@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WallStreet Research</title>
+<meta name="description" content="WallStreet Research, an affiliate of Alan Stone &amp; Company, LLC, provides the small cap investment community with independent analyst research coverage of selected quality emerging growth companies.">
+<link rel="icon" href="assets/brand/wsr-emblem.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --maroon:#881302;
+  --maroon-deep:#5E0D02;
+  --ink:#1A1715;
+  --ink-2:#4A4441;
+  --ink-3:#6E6763;
+  --paper:#FFFFFF;
+  --paper-2:#F6F4F1;
+  --rule:#E2DDD7;
+  --rule-strong:#C9C2BA;
+  --brass:#9A7B2E;
+  --focus:#1F4E9C;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",Menlo,Consolas,monospace;
+  --wrap:1180px;
+  --gutter:clamp(16px,4vw,40px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--maroon);text-underline-offset:3px}
+a:hover{color:var(--maroon-deep)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:2px}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.15;margin:0;text-wrap:balance;letter-spacing:-.005em}
+h2{font-size:clamp(30px,3.6vw,44px)}
+h3{font-size:clamp(22px,2.2vw,27px)}
+h4{font-size:20px}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+.section{padding-block:clamp(64px,8vw,112px)}
+.section.tint{background:var(--paper-2)}
+.section-head{display:grid;gap:14px;max-width:760px;margin-bottom:clamp(36px,4vw,56px)}
+.eyebrow{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--maroon)}
+.lede{font-size:19px;color:var(--ink-2);max-width:65ch}
+.mono{font-family:var(--mono);font-size:13px;letter-spacing:.04em;color:var(--ink-3)}
+.skip{position:absolute;left:16px;top:-100px;background:var(--ink);color:#fff;padding:12px 18px;z-index:1000;font-weight:600;text-decoration:none}
+.skip:focus{top:16px}
+.visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:74px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand img{width:44px;height:auto}
+.brand span{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:-.01em;white-space:nowrap}
+.brand sup{font-size:10px;font-family:var(--sans);font-weight:600;vertical-align:top;margin-left:2px}
+.nav{display:flex;align-items:center;gap:6px}
+.nav a{color:var(--ink-2);text-decoration:none;font-weight:500;font-size:15px;padding:10px 12px;border-radius:4px}
+.nav a:hover{color:var(--ink);background:var(--paper-2)}
+.nav .cta{margin-left:8px;white-space:nowrap;background:var(--maroon);color:#fff;padding:11px 18px;font-weight:600}
+.nav .cta:hover{background:var(--maroon-deep);color:#fff}
+.menu-btn{display:none;background:none;border:1px solid var(--rule-strong);border-radius:4px;padding:8px 12px;font:inherit;font-weight:600;color:var(--ink);cursor:pointer;align-items:center;gap:8px}
+.menu-btn svg{width:22px;height:22px}
+@media (max-width:1120px){
+  .menu-btn{display:inline-flex}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--rule);flex-direction:column;align-items:stretch;padding:12px var(--gutter) 20px;gap:2px}
+  .nav.open{display:flex}
+  .nav a{padding:12px 10px;font-size:17px}
+  .nav .cta{margin:10px 0 0;text-align:center}
+}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:grid;place-items:center;text-align:center;color:#fff;isolation:isolate;padding:calc(74px + 40px) var(--gutter) 64px}
+.hero::before{content:"";position:absolute;inset:0;background:url("assets/brand/hero-skyline.jpg") center/cover no-repeat;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,12,8,.72) 0%,rgba(52,14,8,.62) 55%,rgba(20,10,8,.86) 100%);z-index:-1}
+.hero-inner{display:grid;justify-items:center;gap:26px;max-width:900px}
+.hero .eyebrow{color:#F1D9C9}
+.hero h1{font-size:clamp(42px,6.4vw,84px);font-weight:500;letter-spacing:-.015em;line-height:1.02}
+.hero h1 sup{font-size:.3em;font-family:var(--sans);font-weight:600;vertical-align:top;top:.4em;position:relative}
+.hero .lede{color:#F3ECE6;font-size:clamp(17px,1.5vw,21px);max-width:62ch}
+.hero-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:4px;font-weight:600;text-decoration:none;font-size:16px;border:1px solid transparent;cursor:pointer;font-family:var(--sans)}
+.btn-primary{background:var(--maroon);color:#fff}
+.btn-primary:hover{background:var(--maroon-deep);color:#fff}
+.hero .btn-primary{background:#fff;color:var(--maroon-deep)}
+.hero .btn-primary:hover{background:#F3ECE6;color:var(--maroon-deep)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule-strong)}
+.btn-ghost:hover{border-color:var(--ink);color:var(--ink)}
+.hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.55)}
+.hero .btn-ghost:hover{border-color:#fff;color:#fff}
+.hero-facts{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 40px;margin-top:22px;padding-top:26px;border-top:1px solid rgba(255,255,255,.25);width:100%}
+.hero-facts li{font-size:15px;color:#F3ECE6;display:flex;align-items:center;gap:10px}
+.hero-facts svg{width:22px;height:22px;flex:none}
+
+/* Intro / about */
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(36px,6vw,80px);align-items:start}
+.about-copy{display:grid;gap:20px}
+.about-copy p{max-width:62ch}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:12px;padding-top:28px;border-top:1px solid var(--rule)}
+.stat b{display:block;font-family:var(--serif);font-size:44px;font-weight:500;line-height:1;color:var(--maroon);font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:8px;font-size:14px;color:var(--ink-3);line-height:1.4}
+.about-side{display:grid;gap:22px}
+.about-side figure{margin:0}
+.about-side figcaption{font-size:14px;color:var(--ink-3);margin-top:10px}
+.news{border-left:3px solid var(--maroon);padding:6px 0 6px 20px;display:grid;gap:8px}
+.news .mono{color:var(--maroon)}
+.news h3{font-size:22px}
+.news p{font-size:15px;color:var(--ink-2)}
+
+/* Services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,56px)}
+.service{display:grid;gap:16px}
+.service .icon{width:64px;height:64px;color:var(--maroon)}
+.service h3{margin-top:6px}
+.service .tag{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink-2)}
+.service p{color:var(--ink-2);font-size:16px}
+.service a{font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;margin-top:4px}
+.service a svg{width:18px;height:18px}
+.objectives{margin-top:clamp(48px,6vw,80px);display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,72px);align-items:start;padding-top:clamp(40px,5vw,64px);border-top:1px solid var(--rule)}
+.objectives ul{columns:2;column-gap:36px}
+.objectives li{break-inside:avoid;display:flex;gap:12px;align-items:flex-start;padding:7px 0;font-size:15.5px;color:var(--ink-2)}
+.objectives li svg{width:20px;height:20px;flex:none;color:var(--maroon);margin-top:3px}
+.samples{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(40px,5vw,64px)}
+.samples figure{margin:0;display:grid;gap:10px}
+.samples img{border:1px solid var(--rule);width:100%}
+.samples figcaption{font-size:14px;color:var(--ink-3)}
+
+/* Featured */
+.featured{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.feature-card{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:32px;background:var(--paper);border:1px solid var(--rule);align-items:start}
+.feature-card .logo{display:grid;gap:14px}
+.feature-card .logo img{max-height:70px;width:auto;object-fit:contain}
+.feature-card .logo .preview{max-height:none;border:1px solid var(--rule)}
+.feature-card .body{display:grid;gap:12px}
+.feature-card p{font-size:15.5px;color:var(--ink-2)}
+.link{font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.link svg{width:18px;height:18px}
+
+/* Case studies */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.case{border:1px solid var(--rule);background:var(--paper);padding:26px;display:grid;gap:14px;align-content:start}
+.case img{height:56px;width:auto;max-width:180px;object-fit:contain;object-position:left}
+.case .mono{color:var(--ink-3)}
+.case h3{font-size:22px}
+.case .outcome{font-family:var(--serif);font-size:19px;color:var(--maroon);line-height:1.3}
+.case p{font-size:15px;color:var(--ink-2)}
+.discoveries{margin-top:clamp(40px,5vw,64px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:12px 14px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+td a{text-decoration:none;font-weight:600;color:var(--ink)}
+td a:hover{color:var(--maroon)}
+td .mono{white-space:nowrap}
+
+/* Coverage grid */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filters button{font:inherit;font-size:14px;font-weight:600;padding:9px 14px;border:1px solid var(--rule-strong);background:var(--paper);color:var(--ink-2);border-radius:4px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.coverage{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.company{border:1px solid var(--rule);background:var(--paper);padding:24px;display:grid;gap:12px;align-content:start}
+.company[hidden]{display:none}
+.company .logo{height:52px;display:flex;align-items:center}
+.company .logo img{max-height:52px;max-width:180px;width:auto;object-fit:contain}
+.company h3{font-size:20px}
+.company .mono{color:var(--maroon)}
+.company p{font-size:14.5px;color:var(--ink-2)}
+.company .links{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:4px}
+.company .links a{font-size:14.5px;font-weight:600;text-decoration:none}
+
+/* Events */
+.events{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.event{display:grid;grid-template-columns:200px 1fr;gap:24px;border:1px solid var(--rule);background:var(--paper);padding:24px;align-items:start}
+.event img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.event .body{display:grid;gap:8px}
+.event h3{font-size:22px}
+.event p{font-size:15px;color:var(--ink-2)}
+.event .mono{color:var(--maroon)}
+
+/* Videos */
+.videos{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.video{display:grid;gap:12px}
+.video-frame{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.video-frame img{width:100%;height:100%;object-fit:cover;opacity:.92}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.play{position:absolute;inset:0;width:100%;height:100%;background:transparent;border:0;cursor:pointer;display:grid;place-items:center;color:#fff}
+.play svg{width:72px;height:72px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.5))}
+.play:hover svg{transform:scale(1.06)}
+.video h3{font-size:19px}
+.video p{font-size:14.5px;color:var(--ink-2)}
+.video .mono{font-size:12.5px}
+
+/* Team */
+.leader{display:grid;grid-template-columns:220px 1fr;gap:clamp(28px,4vw,56px);align-items:start;padding:32px;background:var(--paper);border:1px solid var(--rule);margin-bottom:28px}
+.leader img{width:100%;border:1px solid var(--rule)}
+.leader .body{display:grid;gap:12px}
+.leader p{font-size:15.5px;color:var(--ink-2)}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.member{border:1px solid var(--rule);background:var(--paper);padding:0}
+.member summary{cursor:pointer;padding:20px 22px;display:grid;gap:4px;list-style:none;position:relative;padding-right:52px}
+.member summary::-webkit-details-marker{display:none}
+.member summary::after{content:"";position:absolute;right:22px;top:26px;width:10px;height:10px;border-right:2px solid var(--ink-3);border-bottom:2px solid var(--ink-3);transform:rotate(45deg);transition:transform .2s}
+.member[open] summary::after{transform:rotate(225deg);top:30px}
+.member summary b{font-family:var(--serif);font-size:20px;font-weight:500}
+.member summary span{font-size:14px;color:var(--maroon);font-weight:600}
+.member p{padding:0 22px 22px;font-size:14.5px;color:var(--ink-2)}
+.advisors{margin-top:18px;font-size:15px;color:var(--ink-2)}
+
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.gallery figure{margin:0;display:grid;gap:8px}
+.gallery img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.gallery figcaption{font-size:13.5px;color:var(--ink-3)}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(36px,6vw,80px);align-items:start}
+.contact-info{display:grid;gap:26px}
+.contact-info h3{font-size:18px}
+.contact-info address{font-style:normal;color:var(--ink-2);line-height:1.7}
+.contact-info a{text-decoration:none;font-weight:600}
+.people{display:grid;gap:14px}
+.people div{display:grid;gap:2px}
+.people b{font-weight:600}
+.people span{font-size:14px;color:var(--ink-3)}
+.affiliates{display:grid;gap:8px}
+.affiliates a{font-size:15px}
+form{display:grid;gap:18px;padding:32px;background:var(--paper);border:1px solid var(--rule)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:grid;gap:6px}
+label{font-size:14px;font-weight:600;color:var(--ink)}
+label .req{color:var(--maroon)}
+input,textarea,select{font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--rule-strong);border-radius:4px;background:#fff;color:var(--ink);width:100%}
+input:focus,textarea:focus,select:focus{outline:3px solid var(--focus);outline-offset:1px;border-color:var(--focus)}
+textarea{min-height:120px;resize:vertical}
+fieldset{border:0;padding:0;margin:0;display:grid;gap:8px}
+legend{font-size:14px;font-weight:600;padding:0;margin-bottom:6px}
+.checks{display:flex;flex-wrap:wrap;gap:10px 24px}
+.checks label{display:flex;align-items:center;gap:8px;font-weight:500}
+.checks input{width:20px;height:20px;padding:0;accent-color:var(--maroon)}
+.form-note{font-size:13.5px;color:var(--ink-3)}
+.form-status{font-weight:600;color:var(--maroon)}
+
+/* Newsletter band */
+.band{background:var(--maroon-deep);color:#fff}
+.band .wrap{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;padding-block:44px}
+.band h2{font-size:clamp(26px,2.8vw,34px);color:#fff}
+.band p{color:#F1D9C9;font-size:16px;margin-top:6px}
+.band .btn{background:#fff;color:var(--maroon-deep)}
+.band .btn:hover{background:#F3ECE6}
+
+/* Footer */
+.site-footer{background:var(--ink);color:#CFC8C2;padding-block:56px 32px;font-size:14.5px}
+.site-footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px}
+.site-footer h3{color:#fff;font-family:var(--sans);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:14px}
+.site-footer a{color:#fff;text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+.site-footer li{padding:4px 0}
+.site-footer .brand{color:#fff;margin-bottom:14px}
+.site-footer .brand img{filter:none}
+.legal{margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);display:grid;gap:14px}
+.legal details summary{cursor:pointer;color:#fff;font-weight:600}
+.legal details p{margin-top:10px;font-size:13.5px;line-height:1.6}
+.legal .copy{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:13px;color:#9E958E}
+
+/* Cookie consent */
+.cookie{position:fixed;left:20px;bottom:20px;z-index:100;max-width:360px;width:calc(100% - 40px);background:var(--paper);color:var(--ink);border:1px solid var(--rule-strong);box-shadow:0 12px 40px rgba(0,0,0,.18);padding:22px;display:grid;gap:14px;font-size:14.5px;padding-bottom:calc(22px + env(safe-area-inset-bottom,0px))}
+.cookie[hidden]{display:none}
+.cookie h2{font-size:18px;font-family:var(--sans);font-weight:700}
+.cookie p{color:var(--ink-2)}
+.cookie .actions{display:flex;flex-wrap:wrap;gap:10px}
+.cookie .btn{padding:10px 16px;font-size:14px}
+.cookie a{font-weight:600}
+
+/* Responsive */
+@media (max-width:1100px){
+  .coverage,.videos,.cases,.team{grid-template-columns:repeat(2,1fr)}
+  .gallery{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:860px){
+  .about-grid,.objectives,.featured,.discoveries,.events,.contact,.services,.samples{grid-template-columns:1fr}
+  .objectives ul{columns:1}
+  .feature-card,.event,.leader{grid-template-columns:1fr}
+  .feature-card .logo img{max-height:56px}
+  .band .wrap{grid-template-columns:1fr}
+  .site-footer .cols{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:repeat(3,1fr);gap:14px}
+  .stat b{font-size:34px}
+}
+@media (max-width:560px){
+  .coverage,.videos,.cases,.team,.row,.gallery,.site-footer .cols{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .hero-facts{gap:10px 20px}
+  .cookie{left:12px;bottom:12px;width:calc(100% - 24px)}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="WallStreet Research home">
+      <img src="assets/brand/wsr-emblem.png" alt="" width="88" height="94">
+      <span>WallStreet Research<sup>TM</sup></span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" id="menu-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      Menu
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#events">Events</a>
+      <a href="#videos">Videos</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="#contact">Initiate coverage</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero-inner">
+    <p class="eyebrow">Independent small cap and micro cap research since 1979</p>
+    <h1 id="hero-title">Solutions for Emerging Companies<sup>&reg;</sup></h1>
+    <p class="lede">WallStreet Research provides the global investment community with independent analyst research reports, corporate profiles and newsletters on selected quality emerging growth companies.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#contact">Initiate coverage on your company</a>
+      <a class="btn btn-ghost" href="#coverage">View current research</a>
+    </div>
+    <ul class="hero-facts" aria-label="Key facts">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M8 11h6M11 8v6"/></svg>Ranked #1 on Google, Yahoo and Bing</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6"/></svg>Small cap and micro cap specialists</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>Extensive global distribution</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <p class="eyebrow">About WallStreet Research</p>
+      <h2 id="about-title">A top ranked independent research firm with a history spanning four decades.</h2>
+      <p>WallStreet Research (WSR), an affiliate of Alan Stone &amp; Company, LLC, provides the global investment community with independent analyst research reports, corporate profiles and newsletters of selected quality emerging growth companies.</p>
+      <p>With the #1 ranking on Google, Yahoo and Bing search engines, WallStreet Research effectively initiates coverage on emerging companies that offer remarkable gain potential. This has resulted in WSR achieving one of the best track records in the small cap investment marketplace. Our distribution is extensive and global, far outpacing our competitors, due to our long history, superior brand name, extensive proprietary database, our #1 search engine rankings and strong capital position.</p>
+      <p>WSR is renowned for bringing undervalued companies to the attention of the investment community and enhancing shareholder value while providing liquidity to small cap companies. The boutique is spearheaded by Alan Stone, Managing Director of Alan Stone &amp; Company, LLC, and is backed by highly regarded analysts and CFAs.</p>
+      <div class="stats">
+        <div class="stat"><b>45+</b><span>Years of independent research coverage</span></div>
+        <div class="stat"><b>#1</b><span>Search ranking on Google, Yahoo and Bing</span></div>
+        <div class="stat"><b>1998</b><span>Online presence established, distributed globally since</span></div>
+      </div>
+    </div>
+    <div class="about-side">
+      <figure>
+        <img src="assets/photos/nyse-nasdaq.jpg" alt="The WSR logo displayed on the NASDAQ MarketSite tower in Times Square, beside the flag-draped facade of the New York Stock Exchange" width="300" height="200">
+        <figcaption>WallStreet Research at the NASDAQ MarketSite and the New York Stock Exchange.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/photos/team-nasdaq.jpg" alt="Five members of the WallStreet Research team standing together at the NASDAQ MarketSite in New York City" width="300" height="147">
+        <figcaption>WSR team at NASDAQ MarketSite in NYC.</figcaption>
+      </figure>
+      <article class="news" aria-label="Latest news">
+        <span class="mono">Latest, March 26, 2024</span>
+        <h3>Truth Social goes public</h3>
+        <p>Trump Media &amp; Technology Group Corp., the owner of Truth Social, has completed a merger with Digital World Acquisition Corp. (Nasdaq: DWAC) and is listed for trading on the Nasdaq Stock Market under symbol DJT. WSR is the first research firm to begin independent coverage.</p>
+        <a class="link" href="https://wallstreetresearch.org/wsr/?p=145">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section tint" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Research services</p>
+      <h2 id="services-title">Change the way investors view your company.</h2>
+      <p class="lede">WallStreet Research specializes in independent coverage of publicly traded as well as private companies with strong management, significant market prospects and outstanding long-term earnings growth potential. Reports are posted on our website and distributed globally to our proprietary database and numerous leading internet portals.</p>
+    </div>
+    <div class="services">
+      <article class="service">
+        <svg class="icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 6h22l12 12v40H16z"/><path d="M38 6v12h12"/><path d="M24 44l7-9 6 6 9-13"/><path d="M24 52h28"/></svg>
+        <h3>Research Reports</h3>
+        <p class="tag">The demand is just getting started</p>
+        <p>Quality investment research can have a significant impact on the subsequent price and volume of covered stocks. WSR reports are presented in an easy to read section format covering strategy, competitive advantages, financial condition, market, products or services and competition, as well as the analyst's opinion on the future of the company's stock performance.</p>
+        <p>Future demand is growing for emerging companies across many sectors on a global basis. We provide the global investment community with independent analyst research coverage of selected quality small cap stocks.</p>
+        <a href="#contact">Request a research report <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="service">
+        <svg class="icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 58h48"/><path d="M14 58V14l18-8 18 8v44"/><path d="M24 24h4M36 24h4M24 34h4M36 34h4M24 44h4M36 44h4"/><path d="M28 58V50h8v8"/></svg>
+        <h3>Corporate Profiles</h3>
+        <p class="tag">The answer to investor communications</p>
+        <p>WallStreet Research corporate profiles can have a significant impact on stock prices and trading volume. Since establishing online presence in 1998 and substantially expanding distribution capabilities, WSR has reported on numerous emerging companies, enabling remarkable gain potential and one of the best track records in the small cap marketplace.</p>
+        <p>Whether your company is listed on the NYSE, AMEX, NASDAQ, OTC Markets, TSX or other global exchanges, WallStreet Research will take your brand's success to the next level.</p>
+        <a href="#contact">Request a corporate profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="service">
+        <svg class="icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 16h48v34H8z"/><path d="M8 18l24 18 24-18"/><path d="M8 50l18-16M56 50L38 34"/></svg>
+        <h3>Corporate Newsletter</h3>
+        <p class="tag">A targeted awareness solution</p>
+        <p>With its global following and proprietary database of investors, WallStreet Research has had significant success discovering undervalued companies and bringing them to the attention of the investment community, resulting in one of the best track records in the industry.</p>
+        <p>Our analytics capture your message and better define your company's growth story, creating substantial investor interest. WSR newsletters are globally distributed online via our proprietary database and leading industry portals.</p>
+        <a href="#contact">Request a newsletter <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+    </div>
+
+    <div class="objectives">
+      <div>
+        <p class="eyebrow">What coverage delivers</p>
+        <h3>Alan Stone &amp; Company, LLC and its affiliate WallStreet Research use a combination of means to help emerging companies achieve these objectives.</h3>
+        <p style="margin-top:16px;color:var(--ink-2);font-size:15.5px">Many publicly traded companies have more than doubled or tripled the market value of their stock, and greatly enhanced trading volume, within a short period after becoming a client of WallStreet Research and Alan Stone &amp; Company, LLC.</p>
+      </div>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Publish and distribute research reports, corporate profiles and newsletters</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Arrange roadshows to enhance visibility</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Increase the brokerage community's awareness of the company</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Add to the number of active retail brokers</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Draw the attention of industry research report writers and analysts</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Enhance media coverage</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Attract institutional interest</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Attain greater liquidity</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Broaden the company's shareholder base</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Contact and attract quality market makers</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Raise sentiment and response by potential investors</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Provide focused investor intelligence</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Ensure the stock price better reflects performance and future potential</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Uplisting to NASDAQ, NYSE or OTCQX Markets</li>
+      </ul>
+    </div>
+
+    <div class="samples" aria-label="Sample publications">
+      <figure><img src="assets/photos/sample-report.jpg" alt="Front page of a WallStreet Research analyst report on NuLoch Resources" width="260" height="189"><figcaption>Research report: NuLoch Resources Inc. (TSX-V: NLR)</figcaption></figure>
+      <figure><img src="assets/photos/sample-profile.jpg" alt="Front page of a WallStreet Research corporate profile on Social Reality" width="260" height="232"><figcaption>Corporate profile: Social Reality, Inc.</figcaption></figure>
+      <figure><img src="assets/photos/sample-newsletter.jpg" alt="Front page of a WallStreet Research newsletter on Pressure BioSciences" width="260" height="232"><figcaption>Newsletter: Pressure BioSciences, Inc. (OTCQB: PBIO)</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="featured" aria-labelledby="featured-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Featured companies</p>
+      <h2 id="featured-title">Current coverage</h2>
+    </div>
+    <div class="featured">
+      <article class="feature-card">
+        <div class="logo">
+          <img src="assets/logos/jmb-logo.png" alt="James Masterbuilt Homes logo" width="273" height="85">
+          <img class="preview" src="assets/logos/jmb-report.png" alt="Preview of the James Masterbuilt Homes research report" width="320" height="195">
+        </div>
+        <div class="body">
+          <span class="mono">Private, Research report 2026</span>
+          <h3>James Masterbuilt Homes, Inc.</h3>
+          <p>A technology first Net Zero Energy (NZE) housing and infrastructure company operating at the intersection of AI driven building intelligence, proprietary clean energy technology and scalable real estate development.</p>
+          <a class="link" href="https://www.wallstreetresearch.org/reports/JMB_Research_Report_2026.pdf">Read the research report (PDF) <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="link" href="https://jamesmasterbuilthomes.com/">jamesmasterbuilthomes.com</a>
+        </div>
+      </article>
+      <article class="feature-card">
+        <div class="logo">
+          <img src="assets/logos/dreamaderm-logo.png" alt="Dreamaderm logo" width="248" height="54">
+        </div>
+        <div class="body">
+          <span class="mono">OTC Pink: PFSF, Corporate profile September 2024</span>
+          <h3>Pacific Software, Inc.</h3>
+          <p>Pacific Software has repositioned from its dormant status and exited its prior business activities in order to acquire certain assets of Dreamaderm, Inc., a skincare and medical aesthetics company incorporated in Nevada and based in Dana Point, CA. The company recently merged with Pure Minds Enterprises.</p>
+          <a class="link" href="https://www.wallstreetresearch.org/reports/PacificSoftware-Sept-2024.pdf">Read the corporate profile (PDF) <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="link" href="https://www.dreamaderm.com/">dreamaderm.com</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section tint" id="case-studies" aria-labelledby="cases-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Case studies</p>
+      <h2 id="cases-title">A few of our success stories</h2>
+      <p class="lede">Many publicly traded companies have had remarkable performance after becoming a client of WallStreet Research and Alan Stone &amp; Company, LLC.</p>
+    </div>
+    <div class="cases">
+      <article class="case">
+        <img src="assets/logos/qsc.jpg" alt="Questcor Pharmaceuticals logo" width="239" height="229">
+        <span class="mono">AMEX: QSC</span>
+        <h3>Questcor Pharmaceuticals, Inc.</h3>
+        <p class="outcome">Acquired by Mallinckrodt Plc for $5.8 billion</p>
+        <a class="link" href="http://www.wallstreetresearch.org/reports/qsc.htm">View the report</a>
+      </article>
+      <article class="case">
+        <img src="assets/logos/cui.jpg" alt="CUI Global logo" width="239" height="229">
+        <span class="mono">OTC: CUGI to NASDAQ: CUI</span>
+        <h3>CUI Global, Inc.</h3>
+        <p class="outcome">Uplisted to NASDAQ</p>
+        <a class="link" href="http://wallstreetresearch.org/reports/cugi_profile.pdf">View the profile (PDF)</a>
+      </article>
+      <article class="case">
+        <img src="assets/logos/bpa.jpg" alt="BioSante Pharmaceuticals logo" width="239" height="229">
+        <span class="mono">AMEX: BPA</span>
+        <h3>BioSante Pharmaceuticals, Inc.</h3>
+        <p class="outcome">Acquired by ANI Pharmaceuticals</p>
+        <a class="link" href="http://www.wallstreetresearch.org/conf070814/profile_bpa.pdf">View the profile (PDF)</a>
+      </article>
+      <article class="case">
+        <img src="assets/logos/bcli.jpg" alt="Brainstorm Cell Therapeutics logo" width="239" height="229">
+        <span class="mono">NASDAQ: BCLI</span>
+        <h3>Brainstorm Cell Therapeutics, Inc.</h3>
+        <p class="outcome">Uplisted to NASDAQ</p>
+        <a class="link" href="http://wallstreetresearch.org/reports/bcli.htm">View the report</a>
+      </article>
+      <article class="case">
+        <img src="assets/logos/nulcf.jpg" alt="NuLoch Resources logo" width="239" height="229">
+        <span class="mono">TSX-V: NLR, OTCQX: NULCF</span>
+        <h3>NuLoch Resources Inc.</h3>
+        <p class="outcome">Acquired by Magnum Hunter for $400 million</p>
+        <a class="link" href="http://wallstreetresearch.org/reports/nlr_report.pdf">View the report (PDF)</a>
+      </article>
+      <article class="case">
+        <img src="assets/logos/adxs.jpg" alt="Advaxis Immunotherapies logo" width="239" height="229">
+        <span class="mono">NASDAQ: ADXS</span>
+        <h3>Advaxis, Inc.</h3>
+        <p class="outcome">Included in the Russell 3000 index</p>
+      </article>
+    </div>
+
+    <div class="discoveries">
+      <div>
+        <p class="eyebrow">Selected investment discoveries</p>
+        <h3>Companies WSR brought to the attention of the investment community.</h3>
+        <figure style="margin:24px 0 0">
+          <img src="assets/photos/scaramucci-park-stone.jpg" alt="Anthony Scaramucci, Victor Park and Alan Stone standing together at the Encore Hotel in Las Vegas" width="300" height="390" style="max-width:300px">
+          <figcaption style="font-size:14px;color:var(--ink-3);margin-top:10px">Hedge fund manager and former White House spokesman Anthony Scaramucci, keynote speaker at the WSR and Alternative Asset Conference in Las Vegas, with portfolio managers Victor Park and Alan Stone at the Encore Hotel.</figcaption>
+        </figure>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <caption class="visually-hidden">Selected investment discoveries with ticker and outcome</caption>
+          <thead><tr><th scope="col">Company</th><th scope="col">Listing</th><th scope="col">Outcome</th></tr></thead>
+          <tbody>
+            <tr><td><a href="http://www.wallstreetresearch.org/reports/qsc.htm">Questcor Pharmaceuticals, Inc.</a></td><td><span class="mono">AMEX: QSC</span></td><td>Acquired by Mallinckrodt Plc for $5.8 billion</td></tr>
+            <tr><td><a href="http://wallstreetresearch.org/reports/cugi_profile.pdf">CUI Global, Inc.</a></td><td><span class="mono">OTC: CUGI</span></td><td>Uplisted to NASDAQ: CUI</td></tr>
+            <tr><td><a href="http://www.wallstreetresearch.org/conf070814/profile_bpa.pdf">BioSante Pharmaceuticals, Inc.</a></td><td><span class="mono">AMEX: BPA</span></td><td>Acquired by ANI Pharmaceuticals</td></tr>
+            <tr><td><a href="http://wallstreetresearch.org/reports/PBIO5_NOV_V4_FINAL.pdf">Pressure BioSciences, Inc.</a></td><td><span class="mono">OTCQB: PBIO</span></td><td>Continuing coverage</td></tr>
+            <tr><td><a href="http://wallstreetresearch.org/reports/nbs_profile.pdf">NeoStem, Inc.</a></td><td><span class="mono">AMEX: NBS</span></td><td>Corporate profile</td></tr>
+            <tr><td><a href="http://wallstreetresearch.org/reports/rpm_profile.pdf">Rye Patch Gold Corp.</a></td><td><span class="mono">TSX-V: RPM, OTCQX: RPMGF</span></td><td>Corporate profile</td></tr>
+            <tr><td><a href="http://wallstreetresearch.org/reports/profile_sfe.pdf">Safeguard Scientifics, Inc.</a></td><td><span class="mono">NYSE: SFE</span></td><td>Corporate profile</td></tr>
+            <tr><td><a href="http://wallstreetresearch.org/reports/nlr_report.pdf">NuLoch Resources Inc.</a></td><td><span class="mono">TSX-V: NLR, OTCQX: NULCF</span></td><td>Acquired by Magnum Hunter for $400 million</td></tr>
+            <tr><td><a href="http://wallstreetresearch.org/reports/profile_166.pdf">New Times Energy Corporation Limited</a></td><td><span class="mono">Hong Kong: 166</span></td><td>Corporate profile</td></tr>
+            <tr><td><a href="http://www.wallstreetresearch.org/reports/usat.pdf">USA Technologies, Inc.</a></td><td><span class="mono">NASDAQ: USAT</span></td><td>Research report</td></tr>
+            <tr><td><a href="http://wallstreetresearch.org/reports/nymx.htm">Nymox Pharmaceutical Corporation</a></td><td><span class="mono">NASDAQ: NYMX</span></td><td>Research report</td></tr>
+            <tr><td><a href="http://wallstreetresearch.org/reports/bcli.htm">Brainstorm Cell Therapeutics, Inc.</a></td><td><span class="mono">NASDAQ: BCLI</span></td><td>Uplisted to NASDAQ</td></tr>
+            <tr><td><a href="http://wallstreetresearch.org/reports/profile_nns.pdf">Nanostart AG</a></td><td><span class="mono">Frankfurt: NNS</span></td><td>Corporate profile</td></tr>
+            <tr><td><a href="http://wallstreetresearch.org/reports/imsc_profile.pdf">Implant Sciences Corporation</a></td><td><span class="mono">OTCQB: IMSC</span></td><td>Corporate profile</td></tr>
+            <tr><td><a href="http://wallstreetresearch.org/reports/fortune_profile.pdf">Fortune Oil and Gas</a></td><td><span class="mono">Private</span></td><td>Corporate profile</td></tr>
+            <tr><td><a href="http://www.wallstreetresearch.org/reports/Social%20Reality%20Inc_Corporate%20Profile.pdf">Social Reality, Inc.</a></td><td><span class="mono">Nasdaq: SRAX</span></td><td>Uplisted to Nasdaq since WSR initiated coverage in May 2014</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="coverage" aria-labelledby="coverage-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Research coverage</p>
+      <h2 id="coverage-title">Research reports, corporate profiles and newsletters</h2>
+      <p class="lede">Backed by a well established team of investment industry analysts, WSR coverage can positively affect the future of a company's stock performance and has been known to consistently increase long term shareholder value and liquidity.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter companies by category">
+      <button type="button" aria-pressed="true" data-filter="all">All companies</button>
+      <button type="button" aria-pressed="false" data-filter="featured">Previously featured</button>
+      <button type="button" aria-pressed="false" data-filter="more">More featured</button>
+      <button type="button" aria-pressed="false" data-filter="roadshow">Investment roadshow</button>
+      <button type="button" aria-pressed="false" data-filter="uplist">Acquisitions and uplists</button>
+    </div>
+    <div class="coverage" id="coverage-grid">
+      <article class="company" data-cat="featured"><div class="logo"><img src="assets/logos/whsi-logo.png" alt="Wearable Health Solutions logo"></div><span class="mono">OTC: WHSI</span><h3>Wearable Health Solutions, Inc.</h3><p>Provides mobile health (mHealth) products and services to dealers and distributors throughout the globe, generating revenue from PERS devices and recurring monitoring subscription fees.</p><div class="links"><a href="http://wallstreetresearch.org/reports/WHSI-Profile-July-2022-V-3.pdf">Corporate profile</a><a href="http://www.wearablehealthsolutions.com/">Website</a></div></article>
+      <article class="company" data-cat="featured"><div class="logo"><img src="assets/logos/frlf-logo.jpg" alt="Freedom Leaf logo"></div><span class="mono">OTCQB: FRLF</span><h3>Freedom Leaf, Inc.</h3><p>Joint ventured with WallStreet Research to become the leading source for public companies to gain coverage and publish investment research reports through WSR's brand and large readership base.</p><div class="links"><a href="http://wallstreetresearch.org/reports/FRLF-Aug-2017.pdf">Corporate profile</a><a href="http://www.freedomleaf.com/">Website</a></div></article>
+      <article class="company" data-cat="featured"><div class="logo"><img src="assets/logos/nmrd-logo.jpg" alt="Nemaura Medical logo"></div><span class="mono">NASDAQ: NMRD</span><h3>Nemaura Medical, Inc.</h3><p>Completed development of a medical grade software app prepared in compliance with ISO 13485 quality standards.</p><div class="links"><a href="http://wallstreetresearch.org/reports/NMRD_Corp_Profile_2017.pdf">Corporate profile</a><a href="http://www.nemauramedical.com/">Website</a></div></article>
+      <article class="company" data-cat="featured"><div class="logo"><img src="assets/logos/ciix-logo.png" alt="ChineseInvestors.com logo"></div><span class="mono">OTCQB: CIIX</span><h3>ChineseInvestors.com Inc.</h3><p>Its CBD Biotechnology Co. Ltd. exhibited a self branded, hemp infused skin care line at the 29th Vietnam Expo in Hanoi, an important destination for trade promotion between Vietnamese and foreign enterprises.</p><div class="links"><a href="http://wallstreetresearch.org/reports/CIIX_June11_2019_FINAL.pdf">Corporate profile</a><a href="http://www.chinesefn.com">Website</a></div></article>
+      <article class="company" data-cat="featured"><div class="logo"><img src="assets/logos/gcac-logo.png" alt="Global Cannabis Applications Corp logo"></div><span class="mono">OTC: FUAPF, CSE: APP</span><h3>Global Cannabis Applications Corp.</h3><p>A global leader in designing, developing, SaaS licensing and acquiring innovative data technologies for the medical cannabis industry. The Citizen Green and Efixii platforms are end to end medical cannabis data solutions from patient to regulator.</p><div class="links"><a href="http://wallstreetresearch.org/reports/GCAC-Profile.pdf">Corporate profile</a><a href="https://cannappscorp.com/">Website</a></div></article>
+      <article class="company" data-cat="featured"><div class="logo"><img src="assets/logos/gtech-logo.png" alt="Greenland Technologies logo"></div><span class="mono">Nasdaq: GTEC</span><h3>Greenland Technologies Holding Corp.</h3><p>A leading developer of innovative and quality solutions in the material handling industry. In 2021 the company introduced a new line of electric forklifts and is developing electric heavy industrial machinery such as front end loaders and excavators.</p><div class="links"><a href="http://wallstreetresearch.org/reports/GTEC_final_2021.pdf">Initial corporate profile</a><a href="https://gtec-tech.com/">Website</a></div></article>
+      <article class="company" data-cat="featured"><div class="logo"><img src="assets/logos/defi-logo.png" alt="DeFi Technologies logo"></div><span class="mono">OTC: DEFTF</span><h3>DeFi Technologies Inc.</h3><p>A digital asset investment firm that allows traditional investors to identify and invest in a diversified portfolio of digital assets across the decentralized finance sector.</p><div class="links"><a href="http://wallstreetresearch.org/reports/DEFTF-Profile-Jan-2-22.pdf">Updated corporate profile</a><a href="https://defi.tech/">Website</a></div></article>
+      <article class="company" data-cat="featured"><div class="logo"><img src="assets/logos/phun-logo.jpg" alt="Phunware logo"></div><span class="mono">NASDAQ: PHUN</span><h3>Phunware, Inc.</h3><p>Provides a fully integrated enterprise cloud platform for mobile. Its location based SaaS platform reaches over one billion unique devices per month and processes over four billion events per day for many Fortune 500 brands.</p><div class="links"><a href="https://wallstreetresearch.org/reports/PHUN-May-2023.pdf">Research report</a><a href="https://www.phunware.com/">Website</a></div></article>
+      <article class="company" data-cat="featured"><div class="logo"><img src="assets/logos/skvi-logo.png" alt="Skinvisible logo"></div><span class="mono">OTCQB: SKVI</span><h3>Skinvisible, Inc.</h3><p>Develops topical and transdermal products made with its proprietary and patented skin delivery system, Invisicare. Skinvisible recently entered the global obesity treatment market with a provisional patent application for a transdermal delivery method.</p><div class="links"><a href="https://www.wallstreetresearch.org/reports/SKINVISIBLE-PROFILE-JULY-2024.pdf">Research report</a><a href="https://www.skinvisible.com/">Website</a></div></article>
+
+      <article class="company" data-cat="more"><div class="logo"><img src="assets/logos/cogs-logo.jpg" alt="Cognosec logo"></div><span class="mono">Nasdaq Nordic: COGS</span><h3>Cognosec AB</h3><p>WallStreet Research initiated corporate profile coverage on Cognosec AB in April 2017.</p><div class="links"><a href="http://wallstreetresearch.org/reports/COGS_Profile_V6.pdf">Corporate profile</a></div></article>
+      <article class="company" data-cat="more"><div class="logo"><img src="assets/logos/ubn-logo.png" alt="Urban Communications logo"></div><span class="mono">TSXV: UBN</span><h3>Urban Communications, Inc.</h3><p>WallStreet Research initiated corporate profile coverage on Urban Communications in September 2015.</p><div class="links"><a href="http://wallstreetresearch.org/reports/Urban_Communications_Corporate_ProfileFINAL.pdf">Corporate profile</a></div></article>
+      <article class="company" data-cat="more"><div class="logo"><img src="assets/logos/scir-logo.png" alt="Social Reality logo"></div><span class="mono">Nasdaq: SRAX</span><h3>Social Reality, Inc.</h3><p>Social Reality has gained substantially in price and has been uplisted to the Nasdaq since WSR initiated coverage in May 2014.</p><div class="links"><a href="http://wallstreetresearch.org/reports/Social%20Reality%20Inc_Corporate%20Profile.pdf">Corporate profile</a><a href="http://www.socialreality.com/">Website</a></div></article>
+      <article class="company" data-cat="more"><div class="logo"><img src="assets/logos/thxd-logo.jpg" alt="Textmunication logo"></div><span class="mono">TXHD</span><h3>Textmunication Holdings, Inc.</h3><p>A leading mobile marketing solution provider helping thousands of clients across North America improve engagement, retention and loyalty in markets such as health and fitness, beauty, sporting events, hospitality and entertainment.</p><div class="links"><a href="http://wallstreetresearch.org/reports/Textmunication_Final_Sept_2018.pdf">Corporate profile</a><a href="https://www.textmunication.com/">Website</a></div></article>
+      <article class="company" data-cat="more"><div class="logo"><img src="assets/logos/rayton1.jpg" alt="Rayton logo"></div><span class="mono">Private</span><h3>Rayton</h3><p>Uses patented, particle accelerator based technology to produce engineered wafers that can serve as the basis for next generation electronics impacting automotive, aerospace, 5G, LED and solar.</p><div class="links"><a href="http://wallstreetresearch.org/reports/RaytonUpdate2020.pdf">Update report</a><a href="https://www.startengine.com/raytonone">StartEngine offering</a></div></article>
+      <article class="company" data-cat="more"><div class="logo"><img src="assets/logos/idex-logo.png" alt="Ideanomics logo"></div><span class="mono">Nasdaq: IDEX</span><h3>Ideanomics, Inc.</h3><p>Operates two business units: Mobile Energy Group, focused on monetizing large scale adoption of commercial electric vehicles, and Ideanomics Capital, developing financial technology products and services.</p><div class="links"><a href="http://wallstreetresearch.org/reports/IDEXJune2020_FINAL.pdf">Corporate profile</a><a href="https://ideanomics.com/">Website</a></div></article>
+      <article class="company" data-cat="more"><div class="logo"><img src="assets/logos/elys-logo.jpg" alt="Elys Game Technology logo"></div><span class="mono">Nasdaq: ELYS</span><h3>Elys Game Technology, Corp.</h3><p>Formerly Newgioco Group, an international technology firm providing betting platforms for leisure gaming operators, with online and land based gaming services in Europe and the U.S., including lottery, casino, sports betting and live online games.</p><div class="links"><a href="http://wallstreetresearch.org/reports/ELYS-DEC-UPDATE-2020-Nov.pdf">Research report</a><a href="https://elysgame.com/">Website</a></div></article>
+      <article class="company" data-cat="more"><div class="logo"><img src="assets/logos/clro-logo.png" alt="ClearOne logo"></div><span class="mono">NASDAQ: CLRO</span><h3>ClearOne, Inc.</h3><p>Designs, develops and sells conferencing, collaboration and network streaming solutions for voice and visual communications in the United States and internationally.</p><div class="links"><a href="http://wallstreetresearch.org/reports/CLRO-Profile-Final.pdf">Updated research report</a><a href="https://www.clearone.com/">Website</a></div></article>
+      <article class="company" data-cat="more"><div class="logo"><img src="assets/logos/4less-logo.png" alt="The 4Less Group logo"></div><span class="mono">OTC: FLES</span><h3>The 4Less Group, Inc.</h3><p>An auto parts e-commerce retailer and distributor based in Las Vegas, Nevada. A technology based organization coding e-commerce web sites serving the automotive parts industry, originally selling aftermarket accessories such as exhaust and suspension systems, wheels and tires.</p><div class="links"><a href="http://wallstreetresearch.org/reports/FLES-Corp-Profile-Final.pdf">Initial corporate profile</a><a href="https://www.the4lessgroup.com/">Website</a></div></article>
+      <article class="company" data-cat="more"><div class="logo"><img src="assets/logos/cytta.png" alt="Cytta Corp logo"></div><span class="mono">OTCQB: CYCA</span><h3>Cytta Corp.</h3><p>Develops and distributes proprietary technology that radically shifts how video is streamed, consumed, transferred and stored, including advanced video compression, collaboration software and portable hardware systems.</p><div class="links"><a href="http://wallstreetresearch.org/reports/CyttaCorpReport.pdf">Research report</a><a href="https://cytta.com/">Website</a></div></article>
+      <article class="company" data-cat="more"><div class="logo"><img src="assets/logos/borqs-logo.png" alt="Borqs Technologies logo"></div><span class="mono">OTC: BRQSF</span><h3>Borqs Technologies, Inc.</h3><p>A global leader in embedded software and products for the Internet of Things, providing customizable Android based smart connected mobile devices, 5G and end to end cloud service solutions.</p><div class="links"><a href="http://wallstreetresearch.org/reports/BORQS-Jan-2024.pdf">Research report</a><a href="http://www.borqs.com/">Website</a></div></article>
+
+      <article class="company" data-cat="roadshow"><div class="logo"><img src="assets/logos/gaensel-logo.png" alt="Gaensel Energy Group logo"></div><span class="mono">OTC: GEGR</span><h3>Gaensel Energy Group, Inc.</h3><p>An international diversified conglomerate and holding company. In six months GEGR expanded rapidly through a series of fifteen highly diversified acquisitions or investments.</p><div class="links"><a href="http://wallstreetresearch.org/reports/GEGR-Profile-Final-July-version-2.pdf">Updated corporate profile</a><a href="https://gegrgroup.com/">Website</a></div></article>
+      <article class="company" data-cat="roadshow"><div class="logo"><img src="assets/logos/drg-logo.png" alt="Diabetes Reversal Group logo"></div><span class="mono">Private</span><h3>Diabetes Reversal Group LLC</h3><p>Based in Dallas, TX, founded to provide a natural, non drug approach to helping people with metabolic and nutritional imbalances.</p><div class="links"><a href="http://wallstreetresearch.org/reports/Diabetes-Reversal-Group.pdf">Profile</a><a href="https://diabetesreversalgroup.com/">Website</a></div></article>
+
+      <article class="company" data-cat="uplist"><div class="logo"><img src="assets/logos/djiff-logo.jpg" alt="Dajin Resources logo"></div><span class="mono">OTCQB: DJIFF, TSX-V: DJI</span><h3>Dajin Resources Corp.</h3><p>An early stage lithium exploration and development company. Lithium is often seen as the element that will power the future of energy storage technologies.</p><div class="links"><a href="https://www.wallstreetresearch.org/reports/DJIFF_MARCH_2018_WSR.pdf">Corporate profile</a><a href="http://www.dajin.ca/en/home">Website</a></div></article>
+      <article class="company" data-cat="uplist"><div class="logo"><img src="assets/logos/halo-logo.jpg" alt="Halo Labs logo"></div><span class="mono">OTCQX: AGEEF, NEO: HALO</span><h3>Halo Labs, Inc.</h3><p>A global cannabis cultivation, extraction, distribution and branded product company that has produced over 6 million grams of oils and concentrates, with expertise across all major cannabis manufacturing processes.</p><div class="links"><a href="http://wallstreetresearch.org/reports/Halo-Update-12-9-20.pdf">Research report</a><a href="https://halocanna.com/">Website</a></div></article>
+      <article class="company" data-cat="uplist"><div class="logo"><img src="assets/logos/gsfi-logo.png" alt="Green Stream Holdings logo"></div><span class="mono">OTC: GSFI</span><h3>Green Stream Holdings, Inc.</h3><p>A solar utility company with offices in New York City and Los Angeles providing innovative green technology solutions to emerging underserved renewable energy markets, initially focusing on the Northeast.</p><div class="links"><a href="http://wallstreetresearch.org/reports/GreenStream.pdf">Corporate profile</a><a href="https://greenrainsolar.com/">Website</a></div></article>
+      <article class="company" data-cat="uplist"><div class="logo"><img src="assets/logos/jagx-logo.png" alt="Jaguar Health logo"></div><span class="mono">NASDAQ: JAGX</span><h3>Jaguar Health, Inc.</h3><p>An emerging pharmaceuticals company focused on developing and commercializing novel, plant based, sustainably derived gastrointestinal products on a global basis.</p><div class="links"><a href="http://wallstreetresearch.org/reports/Jaguar-2021.pdf">Corporate profile</a><a href="https://jaguar.health/">Website</a></div></article>
+      <article class="company" data-cat="uplist"><div class="logo"><img src="assets/logos/heartcore-logo.png" alt="HeartCore Enterprises logo"></div><span class="mono">NASDAQ: HTCR</span><h3>Heartcore Enterprises, Inc.</h3><p>A leading software development company offering Software as a Service products globally, plus data analytics services that let enterprise businesses create tailored web experiences for their clients.</p><div class="links"><a href="http://wallstreetresearch.org/reports/HeartCoreFINAL-1.pdf">Research report</a><a href="https://heartcore-usa.com/">Website</a></div></article>
+      <article class="company" data-cat="uplist"><div class="logo"><img src="assets/logos/zip-240-logo.png" alt="Zipinmail logo"></div><span class="mono">Private</span><h3>Zipinmail</h3><p>Powered by Digital Mailbox, Inc., Zipinmail has created a mailbox in the cloud for every residential, commercial and PO Box address, facilitating the exchange of information using physical mailing addresses and eliminating the need for paper mail.</p><div class="links"><a href="http://wallstreetresearch.org/reports/Zipinmail-Corporate-Profile.pdf">Corporate profile</a><a href="https://www.zipinmail.com/">Website</a></div></article>
+      <article class="company" data-cat="uplist"><div class="logo"><img src="assets/logos/emotion-trac-small-logo.png" alt="EmotionTrac logo"></div><span class="mono">Private</span><h3>EmotionTrac, Inc.</h3><p>A private startup with patented facial detection AI tools, a growing customer base and revenue in multi hundred billion dollar markets. The platform allows over 200 demographic target options for companies and advertisers.</p><div class="links"><a href="https://www.wallstreetresearch.org/reports/EmotionTrac-March-2024.pdf">Corporate profile</a><a href="https://emotiontrac.com/">Website</a></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section tint" id="events" aria-labelledby="events-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Events and investment roadshows</p>
+      <h2 id="events-title">Present your company to pre qualified investment professionals.</h2>
+      <p class="lede">Your company can benefit from being a featured presenter at one of our investment roadshows: introduce it to an exclusive group of investment bankers, analysts, portfolio managers, hedge fund managers, family offices, top brokers and accredited investors.</p>
+    </div>
+    <div class="events">
+      <article class="event">
+        <img src="assets/photos/truth-social.jpg" alt="A hand holding a phone showing the Truth Social app in front of a laptop displaying a stock chart" width="560" height="420">
+        <div class="body">
+          <span class="mono">March 26, 2024</span>
+          <h3>Trump's Truth Social to start trading on Tuesday</h3>
+          <p>Trump Media &amp; Technology Group Corp. completed its merger with Digital World Acquisition Corp. and lists on the Nasdaq under symbol DJT. With the new listing and a $300 million cash position, DJT is poised to expand its following globally. WSR is the first research firm to begin independent coverage.</p>
+          <a class="link" href="https://wallstreetresearch.org/wsr/?p=145">Read the post</a>
+        </div>
+      </article>
+      <article class="event">
+        <img src="assets/logos/gcac-logo.png" alt="Global Cannabis Applications Corp logo" width="239" height="72" style="object-fit:contain;background:#fff;padding:16px;border:1px solid var(--rule)">
+        <div class="body">
+          <span class="mono">Webinar, April 14, 2021</span>
+          <h3>Cannabis webinar featuring Global Cannabis Applications Corp.</h3>
+          <p>Alan Stone hosted a Zoom webinar and Q&amp;A session with CEO Bradley Moore. Citizen Green Efixii is a blockchain enabled seed to sale technology solution that records every step of the medical cannabis product lifecycle right up to retail.</p>
+          <a class="link" href="https://wallstreetresearch.org/wsr/?cat=1">View event details</a>
+        </div>
+      </article>
+      <article class="event">
+        <img src="assets/photos/ceo-csuite-conference.jpg" alt="CEO and C-Suite Conference banner reading Where Deals Are Made, December 9 to 10, 2019, Las Vegas Country Club" width="590" height="383">
+        <div class="body">
+          <span class="mono">December 9 to 10, 2019, Las Vegas Country Club</span>
+          <h3>CEO &amp; C-Suite Conference</h3>
+          <p>An invitation only investor gathering for cannabis, hemp and CBD executives just prior to MJBizCon, co-hosted with CannaInvestor Magazine. Two days of presentations, panel discussions, one on ones, a networking reception, an exhibit hall, CEO awards, golf, tennis and spa.</p>
+          <a class="link" href="https://www.wallstreetresearch.org/events">View event details</a>
+        </div>
+      </article>
+      <article class="event">
+        <img src="assets/photos/mar-a-lago.jpg" alt="Alan Stone standing on a palm lined walkway at Mar-a-Lago" width="420" height="560">
+        <div class="body">
+          <span class="mono">December 6 and 8, Boca Raton and Palm Beach</span>
+          <h3>Boca Raton Investor Expo and Mar-a-Lago holiday luncheon</h3>
+          <p>An exclusive South Florida Investment Forum luncheon at Morton's Steakhouse featuring CEO presentations, one on one meetings and tabletop displays for fund managers, accredited investors and family offices, followed by holiday festivities in the Grand Mar-a-Lago Ballroom.</p>
+          <a class="link" href="https://www.wallstreetresearch.org/events">View event details</a>
+        </div>
+      </article>
+      <article class="event">
+        <img src="assets/photos/zhittya.png" alt="Zhittya Genesis Medicine slide describing therapeutic angiogenesis and the conditions it may treat" width="560" height="305">
+        <div class="body">
+          <span class="mono">Webinar, October 8, 2020</span>
+          <h3>Dr. Dan Jacobs of Zhittya Genesis Medicine discusses a pre IPO offering</h3>
+          <p>A leading securities firm committed to a firm commitment S-1 initial public offering, with a pre IPO round for accredited investors. Hosted by WSR moderator Sara Ishag and Managing Director Alan Stone.</p>
+          <a class="link" href="#videos">Watch the replay</a>
+        </div>
+      </article>
+      <article class="event">
+        <img src="assets/photos/las-vegas.jpg" alt="The Las Vegas Strip at night with the Bellagio fountains lit up" width="1280" height="853">
+        <div class="body">
+          <span class="mono">Webinar, March 16, 2021</span>
+          <h3>High Gravity Resources, LLC Zoom webinar and Q&amp;A</h3>
+          <p>Owners Doug Shea and Josh Walters, with special guest geologist Harvey H. Howell III, presented a Reg. D 506(c) oil and gas program for high net worth accredited investors, drawing on years of successful wells throughout South Texas.</p>
+          <a class="link" href="https://wallstreetresearch.org/wsr/?cat=1">View event details</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="videos" aria-labelledby="videos-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Videos and webinar replays</p>
+      <h2 id="videos-title">Watch WallStreet Research in action</h2>
+      <p class="lede">Select a video to load the player. Webinars are hosted by WSR moderator Sara Ishag and Managing Director Alan Stone.</p>
+    </div>
+    <div class="videos">
+      <article class="video"><div class="video-frame" data-video="QNihDPE1Ypo"><img src="assets/video/QNihDPE1Ypo.jpg" alt="" width="480" height="360" loading="lazy"><button class="play" type="button" aria-label="Play video: WallStreet Research CEO Alan Stone"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="34" fill="rgba(0,0,0,.55)" stroke="#fff" stroke-width="2"/><path d="M29 23v26l21-13z" fill="#fff"/></svg></button></div><h3>WallStreet Research</h3><p>Alan Stone introduces WallStreet Research, an affiliate company that provides the investment community with quality research reports, corporate profiles and financial newsletters designed to enhance shareholder value.</p></article>
+      <article class="video"><div class="video-frame" data-video="bkn4diSzCRc"><img src="assets/video/bkn4diSzCRc.jpg" alt="" width="480" height="360" loading="lazy"><button class="play" type="button" aria-label="Play video: Investment Roadshow with Alan Stone and Josh Bois"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="34" fill="rgba(0,0,0,.55)" stroke="#fff" stroke-width="2"/><path d="M29 23v26l21-13z" fill="#fff"/></svg></button></div><h3>Investment Roadshow</h3><p>Alan Stone and Josh Bois discuss national investor conferences for WallStreet Research and the Southern California Investment Forum.</p></article>
+      <article class="video"><div class="video-frame" data-video="HxjkL4HXfJA"><img src="assets/video/HxjkL4HXfJA.jpg" alt="" width="480" height="360" loading="lazy"><button class="play" type="button" aria-label="Play video: Southern California Investment Forum"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="34" fill="rgba(0,0,0,.55)" stroke="#fff" stroke-width="2"/><path d="M29 23v26l21-13z" fill="#fff"/></svg></button></div><h3>Southern California Investment Forum</h3><p>Roadmap to the NASDAQ or NYSE: Alan Stone's Southern California Investment Forum.</p></article>
+      <article class="video"><div class="video-frame" data-video="2dIxGQHKW4w"><img src="assets/video/2dIxGQHKW4w.jpg" alt="" width="480" height="360" loading="lazy"><button class="play" type="button" aria-label="Play video: Webinar featuring Shawn Credle of Pineapple Ventures"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="34" fill="rgba(0,0,0,.55)" stroke="#fff" stroke-width="2"/><path d="M29 23v26l21-13z" fill="#fff"/></svg></button></div><span class="mono">February 12, 2021</span><h3>Pineapple Ventures, Inc. with CEO Shawn Credle</h3><p>A Los Angeles based canna-business management firm offering same and next day delivery of over 100 top brands throughout the Los Angeles metropolitan area.</p></article>
+      <article class="video"><div class="video-frame" data-video="gHnmXA8Wfk0"><img src="assets/video/gHnmXA8Wfk0.jpg" alt="" width="480" height="360" loading="lazy"><button class="play" type="button" aria-label="Play video: Knightscope webinar featuring William Santana Li"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="34" fill="rgba(0,0,0,.55)" stroke="#fff" stroke-width="2"/><path d="M29 23v26l21-13z" fill="#fff"/></svg></button></div><span class="mono">January 13, 2021</span><h3>Knightscope with William Santana Li</h3><p>Knightscope builds autonomous security robots in Silicon Valley that patrol across the country 24/7/365, with over 17,000 investors and over $70 million raised since inception.</p></article>
+      <article class="video"><div class="video-frame" data-video="K3zTL80gJ7M"><img src="assets/video/K3zTL80gJ7M.jpg" alt="" width="480" height="360" loading="lazy"><button class="play" type="button" aria-label="Play video: Omura webinar with Mike Simpson and Simon Page"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="34" fill="rgba(0,0,0,.55)" stroke="#fff" stroke-width="2"/><path d="M29 23v26l21-13z" fill="#fff"/></svg></button></div><span class="mono">November 19, 2020</span><h3>Omura with CEO Mike Simpson and COO Simon Page</h3><p>Omura offers a new approach to heat not burn technology with disposable, pre filled whole flower sticks for cannabis and CBD.</p></article>
+      <article class="video"><div class="video-frame" data-video="yZ0qEPAM4fI"><img src="assets/video/yZ0qEPAM4fI.jpg" alt="" width="480" height="360" loading="lazy"><button class="play" type="button" aria-label="Play video: Dr. Dan Jacobs of Zhittya Genesis Medicine"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="34" fill="rgba(0,0,0,.55)" stroke="#fff" stroke-width="2"/><path d="M29 23v26l21-13z" fill="#fff"/></svg></button></div><span class="mono">October 8, 2020</span><h3>Zhittya Genesis Medicine with Dr. Dan Jacobs</h3><p>Dr. Dan Jacobs discusses the company's pre IPO offering for accredited investors ahead of a planned S-1 initial public offering.</p></article>
+      <article class="video"><div class="video-frame" data-video="v9r44iTZ38U"><img src="assets/video/v9r44iTZ38U.jpg" alt="" width="480" height="360" loading="lazy"><button class="play" type="button" aria-label="Play video: Lisa Conte presents Jaguar Health"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="34" fill="rgba(0,0,0,.55)" stroke="#fff" stroke-width="2"/><path d="M29 23v26l21-13z" fill="#fff"/></svg></button></div><span class="mono">September 29, 2020</span><h3>Jaguar Health with founder and CEO Lisa Conte</h3><p>A commercial stage pharmaceuticals company committed to discovering, developing and commercializing plant based prescription medicines for urgent global health needs.</p></article>
+      <article class="video"><div class="video-frame" data-video="QLiwY3j-i-k"><img src="assets/video/QLiwY3j-i-k.jpg" alt="" width="480" height="360" loading="lazy"><button class="play" type="button" aria-label="Play video: Edward Baker of Advisors Equity Fund II"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="34" fill="rgba(0,0,0,.55)" stroke="#fff" stroke-width="2"/><path d="M29 23v26l21-13z" fill="#fff"/></svg></button></div><span class="mono">August 26, 2020</span><h3>Advisors Equity Fund II with Edward Baker</h3><p>Edward Baker, manager of Advisors Equity Fund II, presents a pre IPO foods offering. Since 2010 Mr. Baker has operated IAMC, a wealth management consulting firm for the RIA industry.</p></article>
+      <article class="video"><div class="video-frame" data-video="x6-mOjnQuZ8"><img src="assets/video/x6-mOjnQuZ8.jpg" alt="" width="480" height="360" loading="lazy"><button class="play" type="button" aria-label="Play video: NewLake Capital Partners webinar replay"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="34" fill="rgba(0,0,0,.55)" stroke="#fff" stroke-width="2"/><path d="M29 23v26l21-13z" fill="#fff"/></svg></button></div><span class="mono">July 28, 2020</span><h3>NewLake Capital Partners, Inc.</h3><p>A $100 million independent, diversified, non leveraged real estate REIT with a portfolio of retail and industrial properties leased to experienced cannabis operators, paying an 8% annual dividend.</p></article>
+    </div>
+    <p style="margin-top:28px;font-size:15px;color:var(--ink-2)">Also on Facebook: <a href="https://www.facebook.com/cannanewsfl/videos/2515745792009261/">Canna News Florida video featuring WallStreet Research</a>.</p>
+  </div>
+</section>
+
+<section class="section tint" id="team" aria-labelledby="team-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">WSR team</p>
+      <h2 id="team-title">Analysts, CFAs and capital markets veterans</h2>
+      <p class="lede">Alan Stone &amp; Company, LLC with its affiliate WallStreet Research provides a strategic approach to enhancing shareholder value and liquidity.</p>
+    </div>
+    <article class="leader">
+      <img src="assets/photos/alan-stone.jpg" alt="Portrait of Alan Stone, Managing Director" width="200" height="193">
+      <div class="body">
+        <span class="mono">Managing Director</span>
+        <h3>Alan Stone</h3>
+        <p>During the past 25 years, Alan Stone &amp; Company, LLC has become one of the top ranked investment consulting firms serving emerging companies. Alan has been involved in a wide variety of investor relations, investment banking, corporate finance and merger and acquisition activities and has arranged numerous $2 to $25 million financing and merger transactions for NASDAQ, AMEX, NYSE, OTC Markets and TSX listed companies.</p>
+        <p>Mr. Stone was Director of the Southern California AMEX Corporate Focus and Security Analyst Forum. He was an analyst and assistant portfolio manager of Merrill Lynch Asset Management's $250 million high yield corporate bond fund, later joining Merrill Lynch's brokerage subsidiary, and was also associated with Thomson McKinnon Securities and Ladenburg, Thalmann in New York City.</p>
+        <p>Alan holds a BS in Economics and Finance from the University of Pennsylvania's Wharton School and an MBA in Finance and Investments from New York University's Graduate School of Business, with advanced studies at the London School of Economics and UCLA. He is an active member of the Penn Club in New York City and has served on the board of the University of Pennsylvania Alumni Association of South Florida.</p>
+      </div>
+    </article>
+    <div class="team">
+      <details class="member"><summary><b>Joseph E. Jones</b><span>Original Founder</span></summary><p>Mr. Jones started his CFA career analyzing thousands of securities at Standard &amp; Poor's. He later became a star analyst at Brown Brothers Harriman, spent ten years as Director of Research of the American Stock Exchange and subsequently built WallStreet Research into a major brand name followed by brokerage firms and institutions across America.</p></details>
+      <details class="member"><summary><b>Steve J. Pollack</b><span>Director</span></summary><p>Mr. Pollack retired from Morgan Stanley as a First Vice President and Financial Advisor in New York City after a twenty five year career. Previously he was a Vice President at Drexel Burnham Lambert for seventeen years. A graduate of the Wharton School, he is an active member of the Friars Club, the Financial Analysts and Money Managers Society and is listed in Who's Who in America.</p></details>
+      <details class="member"><summary><b>Kevin Stone, CAIA</b><span>Director</span></summary><p>Mr. Stone served as a Regional Portfolio Manager within BlackRock, building customized multi asset portfolios for ultra high net worth families, foundations, endowments, pensions and institutions. He started his career as an Associate and Analyst with WSR in New York before being recruited by BlackRock. He earned a BA in Economics from Rutgers University with honors, a Certificate in Leadership and Management from the Wharton School and the Chartered Alternative Investment Analyst designation.</p></details>
+      <details class="member"><summary><b>Sara Ishag</b><span>Director, Investor Relations</span></summary><p>Sara brings over a decade of experience in corporate finance and financial services, including as a Wealth Management Banking Executive at JPMorgan Chase and Vice President, Relationship Manager at HSBC. She engages with investors and works with C-Suite clients on their capital raising efforts, and serves on the boards of several early stage companies. Sara holds an Executive MBA from USC and a BSc from the University of California, with certificates from UCLA and UC Berkeley, and is an SEC FINRA licensed professional.</p></details>
+      <details class="member"><summary><b>Mark Vega</b><span>Chief Technology Officer</span></summary><p>Mr. Vega gained his experience in the investment community as a technical advisor to investment bankers, brokers and traders, and served as CTO for several publicly traded companies in the energy, telecom, video and advertising sectors. He has more than a decade of engineering and technical management experience spanning corporate security, network infrastructure, Linux, web automation, data management and telecommunications.</p></details>
+      <details class="member"><summary><b>Janis Remer, JD</b><span>Managing Director</span></summary><p>Janis has a track record of over 10 years in investor relations across technology, biotech, medical device, manufacturing, business services and retail, increasing institutional ownership and retaining positive stock activity. She is a subject matter expert in managed care and health care regulatory matters, works with pre IPO and public companies, and holds an undergraduate business degree from NYU and a law degree from Touro Law School.</p></details>
+      <details class="member"><summary><b>Tytus Biniakiewicz</b><span>Director of Global Research</span></summary><p>Mr. Biniakiewicz has worked with the firm since 1997. Previously he managed investment portfolios on the Warsaw Stock Exchange and specialized in investment models based on technical analysis. He has consulted to emerging public companies in financial and business planning, capitalization, mergers and acquisitions and regulatory compliance, and holds a BA from the University of Cincinnati and an MBA from Pepperdine University.</p></details>
+      <details class="member"><summary><b>Paul J. Resnik, CFA</b><span>Senior Analyst</span></summary><p>Mr. Resnik has over 35 years of investment industry experience and is principal of Resnik Asset Management Co., Inc., a registered investment advisor. He held executive positions at Merrill Lynch, Paine Webber, E.F. Hutton, Shearson Lehman Brothers and Smith Barney, created E.F. Hutton's Equity Research Marketing Department and served on Lehman Brothers' Investment Policy Committee. He is a Chartered Financial Analyst and Registered Supervisory Analyst.</p></details>
+      <details class="member"><summary><b>Sam Kiri, CFA, ACMA</b><span>Senior Analyst</span></summary><p>Mr. Kiri has over a decade of capital markets and asset management experience in North America and the Pacific Rim with a focus on resources and oil and gas. He spent four years with Scotia Bank as a global risk manager and international research analyst, is a Visiting Professor at the University of Toronto and a member of the Canadian Institute of Chartered Accountants' Annual Reports Review Committee.</p></details>
+      <details class="member"><summary><b>Patrick E. Mitchell</b><span>Senior Analyst</span></summary><p>Patrick began working with WallStreet Research in 2014. He started as a proprietary trader for Pro Trade Securities, interned at HedgeCo Securities and now works with a CTA managed futures fund as an analyst and trader. He holds a BS from La Sierra University and an MBA in finance from Florida Atlantic University and is working toward the CFP and CMT designations.</p></details>
+      <details class="member"><summary><b>Mark Putrino, CMT</b><span>Analyst</span></summary><p>Mark has nearly two decades of institutional investment management experience as a professional securities trader, including more than 15 years as Head Trader at three institutional hedge fund and money management groups, each exceeding $1 billion in managed assets. He has held the Chartered Market Technician certification since 2002 and earned a Masters in Finance at New York University.</p></details>
+    </div>
+    <p class="advisors"><strong>Advisory Board:</strong> Barry Klein, Esq., West Palm Beach, FL, and Gary Blum, Esq., Los Angeles, CA, assist Alan Stone &amp; Company, LLC as general and securities counsel.</p>
+  </div>
+</section>
+
+<section class="section" id="gallery" aria-labelledby="gallery-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Roadmap to the NASDAQ or NYSE</p>
+      <h2 id="gallery-title">Four decades on Wall Street and in the investor community</h2>
+    </div>
+    <div class="gallery">
+      <figure><img src="assets/photos/investor-forum.jpg" alt="Three men in suits at an investor forum reception" width="300" height="224" loading="lazy"><figcaption>Investor forum reception</figcaption></figure>
+      <figure><img src="assets/photos/dan-marino.jpg" alt="Alan Stone with Dan Marino and guests at a WSR event" width="300" height="224" loading="lazy"><figcaption>With Dan Marino at a WSR event</figcaption></figure>
+      <figure><img src="assets/photos/forbes-stone.jpg" alt="Alan Stone shaking hands at a Forbes event booth" width="300" height="224" loading="lazy"><figcaption>At the Forbes event</figcaption></figure>
+      <figure><img src="assets/photos/times-square.jpg" alt="Two men standing in Times Square in front of the NASDAQ MarketSite" width="300" height="224" loading="lazy"><figcaption>Times Square, New York</figcaption></figure>
+      <figure><img src="assets/photos/south-florida-forum.jpg" alt="Investors seated at tables during a South Florida Investment Forum presentation" width="300" height="224" loading="lazy"><figcaption>South Florida Investment Forum</figcaption></figure>
+      <figure><img src="assets/photos/south-florida-luncheon.jpg" alt="Attendees at a South Florida Investment Forum luncheon" width="300" height="224" loading="lazy"><figcaption>South Florida Investment Forum luncheon</figcaption></figure>
+      <figure><img src="assets/photos/guest-speaker-trump-jr.jpg" alt="Guest speaker Donald Trump, Jr." width="300" height="204" loading="lazy"><figcaption>Guest speaker Donald Trump, Jr.</figcaption></figure>
+      <figure><img src="assets/photos/holiday-luncheon.jpg" alt="Guests in formal attire at a holiday luncheon ballroom" width="420" height="560" loading="lazy"><figcaption>Holiday luncheon, Palm Beach</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="band-title">
+  <div class="wrap">
+    <div>
+      <h2 id="band-title">The WSR Report: Wall Street's most powerful newsletter</h2>
+      <p>The #1 small cap report for the investment community, plus SCIF Roadshow news and updates.</p>
+    </div>
+    <a class="btn" href="http://eepurl.com/btgJT9">Subscribe today</a>
+  </div>
+</section>
+
+<section class="section" id="contact" aria-labelledby="contact-title">
+  <div class="wrap contact">
+    <div class="contact-info">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-title">Interested in initiating coverage on your publicly traded or private company?</h2>
+        <p class="lede" style="margin-top:14px">If you are considering initiating coverage, we would like to hear from you.</p>
+      </div>
+      <div class="people">
+        <div><b>Alan Stone</b><span>Managing Director</span><a href="tel:+13109094134">310-909-4134</a><a href="mailto:astone@alanstone.com">astone@alanstone.com</a></div>
+        <div><b>Barbra Blake</b><span>Executive Assistant</span><a href="tel:+14154194239">415-419-4239</a><a href="mailto:bjblake1229@att.net">bjblake1229@att.net</a></div>
+      </div>
+      <div>
+        <h3>WallStreet Research</h3>
+        <address>10940 Wilshire Blvd, Suite 1600<br>Los Angeles, CA 90024</address>
+      </div>
+      <div class="affiliates">
+        <h3>Affiliates</h3>
+        <a href="http://alanstone.com">Alan Stone &amp; Company, LLC</a>
+        <a href="http://southerncaliforniainvestmentforum.com">Southern California Investment Forum</a>
+        <a href="http://southfloridainvestmentforum.com">South Florida Investment Forum</a>
+        <a href="http://www.smallcapconference.org">Small Cap Conference</a>
+      </div>
+    </div>
+    <form id="coverage-form" novalidate>
+      <div class="row">
+        <div class="field"><label for="f-name">Name <span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" type="text" autocomplete="name" required aria-required="true"></div>
+        <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" type="text" autocomplete="organization"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="f-email">Email address <span class="req" aria-hidden="true">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required aria-required="true"></div>
+        <div class="field"><label for="f-phone">Phone number <span class="req" aria-hidden="true">*</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required aria-required="true"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="f-symbol">Ticker symbol</label><input id="f-symbol" name="symbol" type="text"></div>
+        <div class="field"><label for="f-website">Website</label><input id="f-website" name="website" type="url" autocomplete="url" placeholder="https://"></div>
+      </div>
+      <fieldset>
+        <legend>I am interested in</legend>
+        <div class="checks">
+          <label><input type="checkbox" name="interest" value="Research Report" id="f-i1">Research report</label>
+          <label><input type="checkbox" name="interest" value="Corporate Profile" id="f-i2">Corporate profile</label>
+          <label><input type="checkbox" name="interest" value="Newsletter" id="f-i3">Newsletter</label>
+          <label><input type="checkbox" name="interest" value="Roadshow" id="f-i4">Roadshow</label>
+        </div>
+      </fieldset>
+      <div class="field"><label for="f-comments">Comments</label><textarea id="f-comments" name="comments"></textarea></div>
+      <p class="form-note">Fields marked with * are required. Information submitted is used only to respond to your enquiry.</p>
+      <div><button class="btn btn-primary" type="submit">Send enquiry</button></div>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="#top"><img src="assets/brand/wsr-emblem.png" alt="" width="88" height="94"><span>WallStreet Research<sup>TM</sup></span></a>
+        <p>Solutions for Emerging Companies. An affiliate of Alan Stone &amp; Company, LLC providing the small cap investment community with independent analyst research coverage of selected quality stocks.</p>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#case-studies">Case studies</a></li>
+          <li><a href="#coverage">Coverage</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#videos">Videos</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Affiliates</h3>
+        <ul>
+          <li><a href="http://alanstone.com">Alan Stone &amp; Company, LLC</a></li>
+          <li><a href="http://southerncaliforniainvestmentforum.com">Southern California Investment Forum</a></li>
+          <li><a href="http://southfloridainvestmentforum.com">South Florida Investment Forum</a></li>
+          <li><a href="http://www.smallcapconference.org">Small Cap Conference</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Office</h3>
+        <address style="font-style:normal;line-height:1.7">10940 Wilshire Blvd, Suite 1600<br>Los Angeles, CA 90024<br><a href="tel:+13109094134">310-909-4134</a><br><a href="mailto:astone@alanstone.com">astone@alanstone.com</a></address>
+      </div>
+    </div>
+    <div class="legal">
+      <details>
+        <summary>Disclaimer</summary>
+        <p>Information contained on this website is not to be construed as an offer to sell, nor a solicitation of an offer to purchase any securities referred to herein or otherwise. Neither WallStreet Research nor Alan Stone &amp; Company LLC is a registered investment advisor or broker dealer.</p>
+        <p>WallStreet Research provides research services to publicly traded companies on a fee basis, the nature and amount of which is fully disclosed in each report. In addition, Alan Stone &amp; Company, LLC may earn fees from consulting services. Alan Stone &amp; Company LLC or its associates may own shares of its client companies, for investment purposes, in its corporate accounts, and may increase or decrease its positions at any time, without notice.</p>
+        <p>Neither WallStreet Research, Alan Stone &amp; Company LLC, nor any providers of information make any warranties, expressed or implied, as to results to be obtained from use of information on this website, and make no expressed or implied warranties of its merchantability or fitness for a particular purpose or use. Emerging markets investments are not appropriate or suitable for all investors. Any securities mentioned herein may be deemed speculative and involve a variety of risk factors. Any investment should be considered cautiously with the aid of an independent registered investment advisor.</p>
+        <p>The information contained on this website is based entirely on information available to the public and has been obtained from the companies featured herein, as well as other sources, in each case without independent verification. The information is considered reliable, but cannot be guaranteed as to accuracy or completeness. It includes certain forward looking statements within the meaning of Section 21E of the SEC Act of 1934, which may be affected by unforeseen circumstances or certain risks. Neither WallStreet Research, Alan Stone &amp; Company LLC nor any of its providers of information or authorized redistributors shall be liable for any third party claims or losses of any nature, including lost profits, punitive or consequential damages, nor for the accuracy, timeliness or completeness of the information contained in the reports. All expressions of opinion are subject to change without notice.</p>
+        <p>Due to the volatile nature of emerging markets and companies with small capitalization, the information contained on this website is extremely time sensitive. No report, information or opinion contained herein should be considered in effect three (3) months following the date of their appearance on the website.</p>
+      </details>
+      <div class="copy">
+        <span>&copy; <span id="year">2026</span> WallStreet Research and Alan Stone &amp; Company, LLC. All rights reserved.</span>
+        <span><a href="#top">Back to top</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<aside class="cookie" id="cookie" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-desc" hidden>
+  <h2 id="cookie-title">Cookies on this site</h2>
+  <p id="cookie-desc">We use essential cookies to make this site work. With your permission we also use analytics cookies to understand how visitors use the site. You can change your choice at any time.</p>
+  <div class="actions">
+    <button class="btn btn-primary" type="button" id="cookie-accept">Accept all</button>
+    <button class="btn btn-ghost" type="button" id="cookie-decline">Essential only</button>
+  </div>
+  <a href="#disclaimer-link" id="cookie-more">Read our disclaimer</a>
+</aside>
+
+<script>
+(function(){
+  var menuBtn=document.getElementById('menu-btn'),nav=document.getElementById('site-nav');
+  menuBtn.addEventListener('click',function(){var open=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open?'true':'false')});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}});
+
+  var filters=document.querySelectorAll('.filters button'),cards=document.querySelectorAll('#coverage-grid .company');
+  filters.forEach(function(b){b.addEventListener('click',function(){
+    filters.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    var f=b.getAttribute('data-filter');
+    cards.forEach(function(c){c.hidden=!(f==='all'||c.getAttribute('data-cat')===f)});
+  })});
+
+  document.querySelectorAll('.video-frame').forEach(function(frame){
+    var btn=frame.querySelector('.play');
+    btn.addEventListener('click',function(){
+      var id=frame.getAttribute('data-video'),title=btn.getAttribute('aria-label').replace('Play video: ','');
+      var ifr=document.createElement('iframe');
+      ifr.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';
+      ifr.title=title;ifr.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';ifr.setAttribute('allowfullscreen','');
+      frame.innerHTML='';frame.appendChild(ifr);ifr.focus();
+    });
+  });
+
+  var form=document.getElementById('coverage-form'),status=document.getElementById('form-status');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var missing=[];['f-name','f-email','f-phone'].forEach(function(id){var el=document.getElementById(id);var bad=!el.value.trim()||(el.type==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value));el.setAttribute('aria-invalid',bad?'true':'false');if(bad)missing.push(el)});
+    if(missing.length){status.textContent='Please complete the required fields: name, a valid email address and phone number.';missing[0].focus();return}
+    status.textContent='Thank you. Your enquiry has been recorded in this mockup; the live site will send it to the WSR team.';form.reset();
+  });
+
+  var cookie=document.getElementById('cookie');
+  function pref(){try{return localStorage.getItem('wsr-cookie-consent')}catch(e){return null}}
+  function save(v){try{localStorage.setItem('wsr-cookie-consent',v)}catch(e){}}
+  if(!pref()){cookie.hidden=false}
+  document.getElementById('cookie-accept').addEventListener('click',function(){save('all');cookie.hidden=true});
+  document.getElementById('cookie-decline').addEventListener('click',function(){save('essential');cookie.hidden=true});
+  document.getElementById('cookie-more').addEventListener('click',function(e){e.preventDefault();var d=document.querySelector('.legal details');d.open=true;d.scrollIntoView({behavior:'smooth'});d.querySelector('summary').focus()});
+
+  document.getElementById('year').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

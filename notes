@@ -1,0 +1,14 @@
+Company: wallstreet research
+Current Site: wwww.wallstreetresearch.org
+
+- they want a fresh new look for their website.
+- create a website mockup in the index.html
+- add a hero section that shows the fills the screen regardless of screen ratio, with all elements centered and the eyebrow should not be in a pill container.
+- extract images and logos from their current site.
+- pull any and all content, images, logos, and videos from the original site and use it here.
+- make it ada compliant
+- add a cookies consent popup on the side
+- avoid making the site look already extremely ai generated, avoid any more ai made indicators like pill containers for eyebrows and a scroll indicator on the hero section, and any kind of em dash in the mockup.
+- when adding icons into the mockup make sure to make the icons high quality svgs and dont put them in containers beside text just make it be the icon and the text and make the icon large.
+- make the core features of the site remain but modernized and refined.
+- when done create a first publish commit that I will push
